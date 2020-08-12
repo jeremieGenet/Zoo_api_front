@@ -1,0 +1,10 @@
+.contact__formulary{
+    width: 50%;
+}
+
+/* Pour les écrans égal ou inférieur à 900 px */
+@media only screen and (max-width: 900px){
+    .contact__formulary{
+        width: 100% !important;
+    }
+}

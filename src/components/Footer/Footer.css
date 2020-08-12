@@ -1,0 +1,23 @@
+.imgFB, .imgTwitter{
+    height: 70px;
+}
+.imgYoutube{
+    height: 40px;
+}
+.link{
+    color: black;
+    transition-duration: 1s; /* La transition dure 1s */
+}
+.link:hover{
+    color: white;
+}
+
+/* Pour les écrans égal ou inférieur à 720 px (tout petits écrans) */
+@media only screen and (max-width: 720px){
+    .imgFB, .imgTwitter{
+        height: 40px;
+    }
+    .imgYoutube{
+        height: 20px;
+    }
+}

@@ -1,0 +1,71 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); /* Répète les images sur toute la largeur dispo (vertical) chaque image vaudra 400px*/
+    min-height: 100vh;
+    grid-gap: 1rem;
+}
+
+.img-container{
+   overflow: hidden; /* Permet que l'effet de zoom ne dépasse pas de la div */
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+    /* object-fit définit la façon dont le contenu d'un élément remplacé (<img> ou <video> par exemple) doit s'adapter à son conteneur en utilisant sa largeur et sa hauteur.*/
+    object-fit: cover;
+    transition: all 0.3s ease-out; /* Transition du zoom */
+    cursor: pointer;
+}
+.img-container img:hover{
+    transform: scale(1.2); /* Effet de zoom au passage de la souris */
+}
+
+.modal_window{
+    background: rgba( 0, 0, 0, 0.90);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* opacity: 1;  Si on veut voir la fenêtre Modale */
+    pointer-events: none;
+    transition: 0.25s ease-out;
+}
+.modal_window.open{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.full-img{
+    position: absolute;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6); /* ECHELLE DE L'IMAGE DE LA FENETRE MODALE*/ 
+    transition: all 0.25s ease-out;
+}
+.full-img.open{
+    transform: translate(-50%, -50%) scale(1);
+}
+.modal_window p{
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+
+/* Pour les écrans égal ou inférieur à 1280 px (On bloque la possibilité d'afficher la fenêtre modale) */
+@media only screen and (max-width: 1280px){
+    .modal_window.open{
+        opacity: 0;
+    }
+}
+
